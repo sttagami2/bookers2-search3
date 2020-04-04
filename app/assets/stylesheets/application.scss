@@ -13,22 +13,49 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";  /*ここを追加*/
-@import "bootstrap";            /*ここを追加*/
-
-header {
-	color:white;
-}
-
-header .navbar-left span {
-	font-size: 20px;
-	padding-top: 10px;
-}
-
-body {
-	margin-top: 40px;
-}
-
-.actions {
-	margin-top:10px;
-}
+ @import "bootstrap-sprockets";  /*ここを追加*/
+ @import "bootstrap";            /*ここを追加*/
+ 
+ header {
+	 color:white;
+ }
+ 
+ header .navbar-left span {
+	 font-size: 20px;
+	 padding-top: 10px;
+ }
+ 
+ .search-form {
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+ }
+ 
+ body {
+	 margin-top: 40px;
+ }
+ 
+ .actions {
+	 margin-top:10px;
+ }
+ 
+ 
+ @media screen and (min-width: 480px) {
+	 header {
+		 height: 210.5px;
+	 }
+ 
+	 main {
+		 margin-top: 210.5px;
+	 }
+ }
+ 
+ @media screen and (min-width: 768px) {
+	 header {
+		 height: 50px;
+	 }
+ 
+	 main {
+		 margin-top: 50px;
+	 }
+ }

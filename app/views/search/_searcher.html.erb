@@ -1,0 +1,25 @@
+<table class="table">
+<thead>
+  <tr>
+    <th>image</th>
+    <th>name</th>
+    <th colspan="1"></th>
+  </tr>
+</thead>
+<tbody>
+  <% datas.each do |data| %>
+    <% if model == "user" %>
+      <tr>
+        <td><%= attachment_image_tag data, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg" %></td>
+        <td><%= data.name %></td>
+        <td><%= link_to "Show", data, class: "user_#{data.id}" %></td>
+      </tr>
+    <% elsif model == "book" %>
+      <tr>
+        <td><%= attachment_image_tag(data.user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %></td>
+        <td><%= data.title %></td>
+        <td><%= link_to "Show", data, class: "book_#{data.id}" %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</tbody>
