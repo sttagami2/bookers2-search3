@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get '/search' => 'search#search'
   devise_for :users
   
   resources :relationships, only: [:create, :destroy]
@@ -13,10 +12,12 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     # ↑resourceが複数形になっていてidを上手く渡せないroute matchエラーが起きていた
   end
-
+  
   root 'home#top'
   get 'home/about', to: 'home#about'
   get 'users/:id/following', to: 'users#following'
   get 'users/:id/followers', to: 'users#followers'
-
+  get '/search' => 'search#search'
+  post '/books/:book_id/favorites' => "favorites#create"
+  delete '/books/:book_id/favorites' => "favorites#destroy"
 end
